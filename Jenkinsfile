@@ -1,19 +1,15 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'maven'
+      args '3.3.3'
+    }
+    
+  }
   stages {
-    stage('env') {
+    stage('') {
       steps {
-        sh 'ls -lh '
-      }
-    }
-    stage('pwd') {
-      steps {
-        sh 'pwd'
-      }
-    }
-    stage('ip') {
-      steps {
-        sh 'ip addr '
+        sh 'mvn --version'
       }
     }
   }
